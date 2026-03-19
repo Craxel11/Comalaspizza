@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PizzaGo | Registro Administrador</title>
+  <link rel="stylesheet" href="css/mostrador-registro.css">
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <header class="mr-topbar">
+    <div class="mr-logo">
+      <div class="mr-logo-icon">🍕</div>
+      <span>PizzaGo <em>Management</em></span>
+    </div>
+    <div class="mr-topbar-right">
+      <a href="mostrador-login.html" class="mr-signin-btn">Iniciar sesión</a>
+    </div>
+  </header>
+
+  <!-- LAYOUT SPLIT -->
+  <main class="mr-main">
+
+    <!-- IZQUIERDA: IMAGEN + BLOQUE INFO -->
+    <div class="mr-image-side">
+      <img src="img/pizza.png" alt="Cocina PizzaGo">
+      <div class="mr-image-overlay"></div>
+      <div class="mr-info-card">
+        <div class="mr-info-icon">🍕</div>
+        <h3>Internal Operations Portal</h3>
+        <p>Registro administrativo seguro para gestión de pedidos, inventario y coordinación del equipo.</p>
+      </div>
+    </div>
+
+    <!-- DERECHA: FORMULARIO -->
+    <div class="mr-form-side">
+
+      <div class="mr-form-header">
+        <h2>Administrator<br>Registration</h2>
+        <p>Completa el formulario para crear tus credenciales de acceso al panel.</p>
+      </div>
+
+      <form id="mostradorRegistroForm" class="mr-form">
+
+        <div class="mr-fields-row">
+          <div class="mr-field">
+            <label>Nombre completo</label>
+            <div class="mr-input-wrap">
+              <span class="mr-icon">👤</span>
+              <input type="text" id="mrNombre" placeholder="John Doe" autocomplete="name">
+            </div>
+          </div>
+          <div class="mr-field">
+            <label>ID de Empleado</label>
+            <div class="mr-input-wrap">
+              <span class="mr-icon">🏷</span>
+              <input type="text" id="mrEmpleadoId" placeholder="MP-5023">
+            </div>
+          </div>
+        </div>
+
+        <div class="mr-field">
+          <label>Correo del Staff</label>
+          <div class="mr-input-wrap">
+            <span class="mr-icon">✉️</span>
+            <input type="email" id="mrCorreo" placeholder="nombre@pizzago.com" autocomplete="email">
+          </div>
+        </div>
+
+        <div class="mr-field">
+          <label>Rol / Posición</label>
+          <div class="mr-input-wrap">
+            <span class="mr-icon">🏢</span>
+            <input type="text" id="mrRol" value="Administrador" readonly style="cursor:default;opacity:0.7;">
+          </div>
+        </div>
+
+        <div class="mr-field">
+          <label>Crear Contraseña</label>
+          <div class="mr-input-wrap">
+            <span class="mr-icon">🔒</span>
+            <input type="password" id="mrPassword" placeholder="••••••••" autocomplete="new-password">
+            <button type="button" class="mr-eye" onclick="mrTogglePass()">👁</button>
+          </div>
+          <small class="mr-hint">Mínimo 6 caracteres, incluye números y símbolos</small>
+        </div>
+
+        <button type="submit" class="mr-btn">
+          Registrar Administrador →
+        </button>
+
+        <p id="mrMensaje" class="mr-mensaje"></p>
+
+        <p class="mr-terms">Al registrarte, aceptas la <a href="#">Política de Seguridad Interna</a></p>
+      </form>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="mr-footer">
+    <span>SYSTEM VERSION: CPM 2.4.1 · 7.18.2</span>
+    <span>© 2025 PizzaGo MZS.COM</span>
+    <span>INTEGRITY LEVEL: TIER 3</span>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/mostrador-registro.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PizzaGo | Acceso Administrador</title>
+  <link rel="stylesheet" href="css/mostrador-login.css">
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <header class="ml-topbar">
+    <div class="ml-logo">
+      <div class="ml-logo-icon">🍕</div>
+      <span>PizzaGo</span>
+    </div>
+    <a href="login.html" class="ml-support-btn">← Acceso clientes</a>
+  </header>
+
+  <!-- CONTENIDO CENTRADO -->
+  <main class="ml-main">
+    <div class="ml-card">
+
+      <!-- Imagen decorativa -->
+      <div class="ml-card-img">
+        <img src="img/pizza.png" alt="Pizza">
+        <div class="ml-card-img-overlay"></div>
+      </div>
+
+      <!-- Título -->
+      <div class="ml-card-header">
+        <h2>Admin Access</h2>
+        <p>Panel de gestión de pedidos para mostrador y cocina</p>
+      </div>
+
+      <!-- Formulario -->
+      <form id="mostradorLoginForm" class="ml-form">
+
+        <div class="ml-field">
+          <label>Staff ID o Correo</label>
+          <div class="ml-input-wrap">
+            <span class="ml-icon">👤</span>
+            <input type="text" id="usuarioMostrador" placeholder="admin.name@pizzago.com" autocomplete="username">
+          </div>
+        </div>
+
+        <div class="ml-field">
+          <div class="ml-label-row">
+            <label>Contraseña</label>
+          </div>
+          <div class="ml-input-wrap">
+            <span class="ml-icon">🔒</span>
+            <input type="password" id="passwordMostrador" placeholder="••••••••" autocomplete="current-password">
+            <button type="button" class="ml-eye" onclick="mlTogglePass()">👁</button>
+          </div>
+        </div>
+
+        <button type="submit" class="ml-btn">
+          Entrar al Panel ⇒
+        </button>
+
+        <p id="mensajeMostrador" class="ml-mensaje"></p>
+      </form>
+
+      <!-- Footer de la card -->
+      <p class="ml-aviso">Solo personal autorizado. Los accesos son registrados y monitoreados por seguridad.</p>
+
+      <a href="mostrador-registro.html" class="ml-register-link">
+        ¿Eres nuevo administrador? Crear cuenta →
+      </a>
+
+      <div class="ml-card-footer-links">
+        <a href="#">Política de privacidad</a>
+        <a href="#">Términos de servicio</a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer global -->
+  <footer class="ml-footer">
+    © 2025 PizzaGo Management System. All rights reserved.
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/mostrador-login.js"></script>
+</body>
+</html>

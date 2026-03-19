@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PizzaGo | Panel de Pedidos</title>
+  <link rel="stylesheet" href="css/mostrador.css">
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="ms-sidebar">
+    <div class="ms-sidebar-top">
+      <div class="ms-logo">
+        <div class="ms-logo-icon">🍕</div>
+        <div>
+          <span class="ms-logo-name">PizzaGo</span>
+          <span class="ms-logo-sub">Dashboard</span>
+        </div>
+      </div>
+
+      <nav class="ms-nav">
+        <button class="ms-nav-btn active" onclick="msSetTab('pedidos', this)">
+          <span>📋</span> Pedidos Activos
+        </button>
+        <button class="ms-nav-btn" onclick="msSetTab('historial', this)">
+          <span>🕐</span> Historial
+        </button>
+        <button class="ms-nav-btn" onclick="msSetTab('settings', this)">
+          <span>⚙️</span> Configuración
+        </button>
+      </nav>
+    </div>
+
+    <div class="ms-sidebar-bottom">
+      <div class="ms-admin-info">
+        <div class="ms-admin-avatar">👤</div>
+        <div>
+          <strong id="msAdminNombre">Administrador</strong>
+          <span id="msAdminRol">Kitchen Manager</span>
+        </div>
+      </div>
+      <button class="ms-logout" onclick="cerrarSesionMostrador()">↩ Salir</button>
+    </div>
+  </aside>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <div class="ms-content">
+
+    <!-- TOPBAR -->
+    <header class="ms-topbar">
+      <div class="ms-topbar-left">
+        <h2 id="msPanelTitle">Panel de Pedidos Activos</h2>
+        <div class="ms-badges">
+          <span class="ms-badge-activos" id="msBadgeActivos">0 Activos</span>
+          <span class="ms-badge-nuevos" id="msBadgeNuevos">0 Nuevos</span>
+        </div>
+      </div>
+      <div class="ms-topbar-right">
+        <button class="ms-refresh-btn" onclick="cargarPedidos()">↻ Actualizar</button>
+        <div class="ms-notif-btn">🔔</div>
+      </div>
+    </header>
+
+    <!-- TABS FILTRO -->
+    <div class="ms-tabs" id="ms-tabs-pedidos">
+      <button class="ms-tab active" onclick="msFiltrar('todos', this)">
+        Todos <span id="tabTodos">0</span>
+      </button>
+      <button class="ms-tab" onclick="msFiltrar('Nuevo', this)">
+        Nuevos <span id="tabNuevos">0</span>
+      </button>
+      <button class="ms-tab" onclick="msFiltrar('En preparación', this)">
+        En Progreso <span id="tabPrep">0</span>
+      </button>
+      <button class="ms-tab" onclick="msFiltrar('En camino', this)">
+        En Camino <span id="tabCamino">0</span>
+      </button>
+      <button class="ms-tab" onclick="msFiltrar('Entregado', this)">
+        Entregados <span id="tabEntregado">0</span>
+      </button>
+    </div>
+
+    <!-- PANEL PEDIDOS -->
+    <div class="ms-panel" id="ms-panel-pedidos">
+
+      <!-- Resumen stats -->
+      <div class="ms-stats">
+        <div class="ms-stat-card">
+          <span>Total</span>
+          <strong id="totalPedidos">0</strong>
+        </div>
+        <div class="ms-stat-card ms-stat-gold">
+          <span>Nuevos</span>
+          <strong id="pedidosNuevos">0</strong>
+        </div>
+        <div class="ms-stat-card ms-stat-orange">
+          <span>En preparación</span>
+          <strong id="pedidosPreparacion">0</strong>
+        </div>
+        <div class="ms-stat-card ms-stat-blue">
+          <span>En camino</span>
+          <strong id="pedidosCamino">0</strong>
+        </div>
+      </div>
+
+      <!-- Grid de pedidos -->
+      <div id="sinPedidos" class="ms-sin-pedidos" style="display:none">
+        <div>📦</div>
+        <h3>No hay pedidos</h3>
+        <p>Cuando un cliente realice un pedido aparecerá aquí.</p>
+      </div>
+
+      <div id="listaPedidos" class="ms-grid"></div>
+    </div>
+
+    <!-- PANEL HISTORIAL -->
+    <div class="ms-panel" id="ms-panel-historial" style="display:none">
+      <div class="ms-hist-header">
+        <h3>Historial de pedidos</h3>
+        <button class="ms-clear-hist" onclick="msLimpiarHistorial()">🗑 Limpiar historial</button>
+      </div>
+      <div id="msHistorialLista" class="ms-hist-lista"></div>
+    </div>
+
+    <!-- PANEL SETTINGS -->
+    <div class="ms-panel" id="ms-panel-settings" style="display:none">
+      <div class="ms-settings-card">
+        <h3>Información del administrador</h3>
+        <div class="ms-settings-rows" id="msSettingsInfo"></div>
+        <button class="ms-settings-logout" onclick="cerrarSesionMostrador()">↩ Cerrar sesión</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="toastMostrador" class="ms-toast"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/mostrador.js"></script>
+</body>
+</html>

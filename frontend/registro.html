@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PizzaGo | Crear cuenta</title>
+  <link rel="stylesheet" href="css/registro.css">
+</head>
+<body>
+
+  <!-- LADO IZQUIERDO: IMAGEN -->
+  <div class="rg-image-side">
+    <img src="img/pizza.png" alt="Pizza PizzaGo">
+    <div class="rg-image-overlay"></div>
+    <div class="rg-brand-block">
+      <div class="rg-logo">
+        <div class="rg-logo-icon">🍕</div>
+        <span>PizzaGo</span>
+      </div>
+      <h1 class="rg-tagline">Las mejores rebanadas<br>de la ciudad <em>te esperan.</em></h1>
+      <p class="rg-sub">Únete y obtén acceso a promociones exclusivas, seguimiento de pedidos y mucho más.</p>
+    </div>
+  </div>
+
+  <!-- LADO DERECHO: FORMULARIO -->
+  <div class="rg-form-side">
+
+    <div class="rg-form-header">
+      <h2>Crear Cuenta</h2>
+      <p>Comienza tu viaje a la pizza perfecta</p>
+    </div>
+
+    <form id="registroForm">
+
+      <div class="rg-field">
+        <label>Nombre completo</label>
+        <div class="rg-input-wrap">
+          <span class="rg-icon">👤</span>
+          <input type="text" id="nombre" placeholder="John Doe" autocomplete="name">
+        </div>
+      </div>
+
+      <div class="rg-field">
+        <label>Correo electrónico o teléfono</label>
+        <div class="rg-input-wrap">
+          <span class="rg-icon">✉️</span>
+          <input type="text" id="usuario" placeholder="john@example.com o 9611234567" autocomplete="email">
+        </div>
+      </div>
+
+      <div class="rg-field">
+        <label>Contraseña</label>
+        <div class="rg-input-wrap">
+          <span class="rg-icon">🔒</span>
+          <input type="password" id="password" placeholder="••••••••" autocomplete="new-password">
+          <button type="button" class="rg-eye" onclick="togglePass('password', this)">👁</button>
+        </div>
+      </div>
+
+      <div class="rg-field">
+        <label>Confirmar contraseña</label>
+        <div class="rg-input-wrap">
+          <span class="rg-icon">🔒</span>
+          <input type="password" id="confirmarPassword" placeholder="••••••••" autocomplete="new-password">
+          <button type="button" class="rg-eye" onclick="togglePass('confirmarPassword', this)">👁</button>
+        </div>
+      </div>
+
+      <button type="submit" class="rg-btn-primary">
+        Crear Cuenta →
+      </button>
+
+      <p id="mensaje" class="rg-mensaje"></p>
+    </form>
+
+    <div class="rg-footer-link">
+      ¿Ya tienes una cuenta? <a href="login.html">← Iniciar sesión</a>
+    </div>
+
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/Registro.js"></script>
+</body>
+</html>

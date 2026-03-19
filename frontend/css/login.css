@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+*, *::before, *::after {
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --gold: #f6c400;
+  --gold-dim: rgba(246,196,0,0.12);
+  --dark: #111110;
+  --dark-2: #1a1917;
+  --dark-3: #222220;
+  --text-main: #f0ece4;
+  --text-soft: #a89f92;
+  --text-muted: #5a5650;
+  --radius: 16px;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--dark);
+  font-family: 'DM Sans', sans-serif;
+  display: flex;
+  overflow: hidden;
+}
+
+/* ── LADO IZQUIERDO: IMAGEN ── */
+.lg-image-side {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  min-height: 100vh;
+}
+
+.lg-image-side img {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: brightness(0.55);
+  transform: scale(1.03);
+  transition: transform 12s ease;
+}
+
+.lg-image-side:hover img { transform: scale(1.08); }
+
+.lg-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(17,17,16,0.92) 0%,
+    rgba(17,17,16,0.3) 45%,
+    transparent 100%
+  );
+}
+
+.lg-brand-block {
+  position: relative;
+  z-index: 2;
+  padding: 48px;
+}
+
+.lg-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.lg-logo-icon {
+  width: 44px; height: 44px;
+  background: var(--gold);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+}
+
+.lg-logo span {
+  font-family: 'Syne', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.5px;
+}
+
+.lg-tagline {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(28px, 3vw, 42px);
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.15;
+  margin-bottom: 14px;
+  max-width: 420px;
+}
+
+.lg-tagline em {
+  font-style: normal;
+  color: var(--gold);
+}
+
+.lg-sub {
+  font-size: 15px;
+  color: var(--text-soft);
+  max-width: 340px;
+  line-height: 1.6;
+}
+
+/* ── LADO DERECHO: FORMULARIO ── */
+.lg-form-side {
+  width: 440px;
+  flex-shrink: 0;
+  background: var(--dark-2);
+  border-left: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 56px 44px;
+  position: relative;
+  overflow-y: auto;
+  min-height: 100vh;
+}
+
+.lg-form-header {
+  margin-bottom: 36px;
+}
+
+.lg-form-header h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 6px;
+  letter-spacing: -0.5px;
+}
+
+.lg-form-header p {
+  font-size: 14px;
+  color: var(--text-soft);
+}
+
+/* Campos */
+.lg-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 16px;
+}
+
+.lg-field label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-soft);
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.lg-field input {
+  background: var(--dark-3);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius);
+  padding: 13px 16px;
+  color: var(--text-main);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%;
+}
+
+.lg-field input::placeholder { color: var(--text-muted); }
+
+.lg-field input:focus {
+  border-color: rgba(246,196,0,0.4);
+  box-shadow: 0 0 0 3px rgba(246,196,0,0.07);
+}
+
+/* Botón principal */
+.lg-btn-primary {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #f6c400, #ffd740);
+  color: #111110;
+  border: none;
+  border-radius: var(--radius);
+  font-family: 'Syne', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.25s ease;
+  letter-spacing: 0.2px;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.lg-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(246,196,0,0.25);
+}
+
+.lg-btn-primary:active { transform: translateY(0); }
+
+/* Mensaje */
+.lg-mensaje {
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  min-height: 18px;
+  margin-top: 10px;
+  color: #ff6b6b;
+  transition: color 0.2s;
+}
+.lg-mensaje.ok { color: #4caf88; }
+
+/* Link de registro */
+.lg-footer-link {
+  margin-top: 28px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.lg-footer-link a {
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 600;
+}
+.lg-footer-link a:hover { text-decoration: underline; }
+
+/* Acceso mostrador */
+.acceso-mostrador {
+  position: absolute;
+  top: 20px; right: 20px;
+  font-size: 12px;
+  color: var(--text-muted);
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 7px 14px;
+  border-radius: 999px;
+  transition: 0.2s;
+}
+.acceso-mostrador:hover { border-color: rgba(246,196,0,0.3); color: var(--gold); }
+
+/* Animación entrada */
+.lg-form-side { animation: slideIn 0.5s ease; }
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Responsive */
+@media (max-width: 780px) {
+  body { flex-direction: column; overflow: auto; }
+  .lg-image-side { min-height: 240px; flex: none; }
+  .lg-form-side { width: 100%; min-height: auto; padding: 40px 28px; }
+  .lg-brand-block { padding: 32px; }
+}

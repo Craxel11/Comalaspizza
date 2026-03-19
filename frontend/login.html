@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PizzaGo | Iniciar sesión</title>
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+  <!-- LADO IZQUIERDO: IMAGEN -->
+  <div class="lg-image-side">
+    <img src="img/pizza.png" alt="Pizza PizzaGo">
+    <div class="lg-image-overlay"></div>
+    <div class="lg-brand-block">
+      <div class="lg-logo">
+        <div class="lg-logo-icon">🍕</div>
+        <span>PizzaGo</span>
+      </div>
+      <h1 class="lg-tagline">Las mejores pizzas,<br>directo a <em>tu puerta.</em></h1>
+      <p class="lg-sub">Únete a nuestra comunidad y disfruta de pizzas artesanales con los mejores ingredientes.</p>
+    </div>
+  </div>
+
+  <!-- LADO DERECHO: FORMULARIO -->
+  <div class="lg-form-side">
+    <a href="mostrador-login.html" class="acceso-mostrador">Acceso mostrador</a>
+
+    <div class="lg-form-header">
+      <h2>Bienvenido de vuelta</h2>
+      <p>Ingresa tus datos para continuar</p>
+    </div>
+
+    <form id="loginForm">
+      <div class="lg-field">
+        <label>Correo o teléfono</label>
+        <input type="text" id="usuario" placeholder="correo@ejemplo.com o 9611234567" autocomplete="username">
+      </div>
+
+      <div class="lg-field">
+        <label>Contraseña</label>
+        <input type="password" id="password" placeholder="••••••••" autocomplete="current-password">
+      </div>
+
+      <button type="submit" class="lg-btn-primary">
+        Iniciar sesión →
+      </button>
+
+      <p id="mensaje" class="lg-mensaje"></p>
+    </form>
+
+    <div class="lg-footer-link">
+      ¿No tienes cuenta? <a href="registro.html">Crear una cuenta</a>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/Login.js"></script>
+</body>
+</html>

@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+*, *::before, *::after {
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --gold: #f6c400;
+  --dark: #111110;
+  --dark-2: #1a1917;
+  --dark-3: #222220;
+  --text-main: #f0ece4;
+  --text-soft: #a89f92;
+  --text-muted: #5a5650;
+  --radius: 16px;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--dark);
+  font-family: 'DM Sans', sans-serif;
+  display: flex;
+  overflow: hidden;
+}
+
+/* ── IMAGEN ── */
+.rg-image-side {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  min-height: 100vh;
+}
+
+.rg-image-side img {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: brightness(0.5);
+  transform: scale(1.03);
+  transition: transform 12s ease;
+}
+.rg-image-side:hover img { transform: scale(1.08); }
+
+.rg-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(17,17,16,0.92) 0%,
+    rgba(17,17,16,0.25) 50%,
+    transparent 100%
+  );
+}
+
+.rg-brand-block {
+  position: relative;
+  z-index: 2;
+  padding: 48px;
+}
+
+.rg-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.rg-logo-icon {
+  width: 44px; height: 44px;
+  background: var(--gold);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+}
+
+.rg-logo span {
+  font-family: 'Syne', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.rg-tagline {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(26px, 2.8vw, 40px);
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.15;
+  margin-bottom: 14px;
+  max-width: 400px;
+}
+.rg-tagline em { font-style: normal; color: var(--gold); }
+
+.rg-sub {
+  font-size: 14px;
+  color: var(--text-soft);
+  max-width: 320px;
+  line-height: 1.6;
+}
+
+/* ── FORMULARIO ── */
+.rg-form-side {
+  width: 460px;
+  flex-shrink: 0;
+  background: var(--dark-2);
+  border-left: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px 44px;
+  overflow-y: auto;
+  min-height: 100vh;
+  animation: slideIn 0.45s ease;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.rg-form-header { margin-bottom: 28px; }
+.rg-form-header h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.4px;
+  margin-bottom: 5px;
+}
+.rg-form-header p { font-size: 13px; color: var(--text-soft); }
+
+/* Campos */
+.rg-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 14px;
+}
+
+.rg-field label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-soft);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.rg-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.rg-icon {
+  position: absolute;
+  left: 14px;
+  font-size: 14px;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.rg-input-wrap input {
+  width: 100%;
+  background: var(--dark-3);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius);
+  padding: 12px 16px 12px 40px;
+  color: var(--text-main);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.rg-input-wrap input::placeholder { color: var(--text-muted); }
+.rg-input-wrap input:focus {
+  border-color: rgba(246,196,0,0.4);
+  box-shadow: 0 0 0 3px rgba(246,196,0,0.07);
+}
+
+.rg-eye {
+  position: absolute;
+  right: 12px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  opacity: 0.4;
+  transition: opacity 0.2s;
+  padding: 4px;
+}
+.rg-eye:hover { opacity: 0.8; }
+
+/* Botón */
+.rg-btn-primary {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #f6c400, #ffd740);
+  color: #111110;
+  border: none;
+  border-radius: var(--radius);
+  font-family: 'Syne', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.25s ease;
+  margin-top: 6px;
+  letter-spacing: 0.2px;
+}
+.rg-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(246,196,0,0.25);
+}
+
+/* Mensaje */
+.rg-mensaje {
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  min-height: 18px;
+  margin-top: 10px;
+  color: #ff6b6b;
+}
+.rg-mensaje.ok { color: #4caf88; }
+
+/* Link login */
+.rg-footer-link {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.rg-footer-link a {
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid rgba(246,196,0,0.2);
+  padding: 8px 18px;
+  border-radius: 999px;
+  display: inline-block;
+  margin-top: 8px;
+  transition: 0.2s;
+}
+.rg-footer-link a:hover {
+  background: rgba(246,196,0,0.07);
+  border-color: rgba(246,196,0,0.4);
+}
+
+@media (max-width: 780px) {
+  body { flex-direction: column; overflow: auto; }
+  .rg-image-side { min-height: 220px; flex: none; }
+  .rg-form-side { width: 100%; min-height: auto; padding: 36px 24px; }
+  .rg-brand-block { padding: 28px; }
+}
